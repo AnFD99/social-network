@@ -1,0 +1,10 @@
+.person {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.person__name {
+	margin-bottom: 15px;
+}

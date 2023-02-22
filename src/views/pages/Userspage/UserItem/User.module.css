@@ -1,0 +1,128 @@
+.user__block {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+	width: 85%;
+	max-height: 200px;
+	align-items: center;
+	padding: 10px 0;
+}
+
+.user__left {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 10px 0;
+}
+
+.avatar {
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto 15px;
+	overflow: hidden;
+
+	border-radius: 50%;
+
+	position: relative;
+}
+
+.img {
+	width: 200px;
+	border-radius: 50%;
+	object-fit: cover;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	transform: translate3d(-50%, -50%, 0);
+}
+
+.noneImg {
+	width: 115px;
+	border-radius: 50%;
+	object-fit: cover;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	transform: translate3d(-50%, -50%, 0);
+}
+
+.btn {
+	width: 80%;
+	text-align: center;
+}
+
+.follow,
+.unfollow {
+	padding: 7px 14px;
+
+	border: none;
+	border-radius: 10px;
+
+	font-family: inherit;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 1;
+
+	cursor: pointer;
+}
+
+.follow {
+	color: white;
+	background-color: darkcyan;
+}
+
+.follow:disabled {
+	background-color: cadetblue;
+	cursor: default;
+}
+
+.unfollow {
+	color: darkcyan;
+	background-color: gainsboro;
+}
+
+.unfollow:disabled {
+	background-color: darkgrey;
+	cursor: default;
+}
+
+.user__right {
+	width: 85%;
+	max-height: 150px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 2px solid #ccc;
+	border-radius: 15px;
+	padding: 20px;
+}
+
+.user__information {
+	display: flex;
+	flex-direction: column;
+}
+
+.user__name {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.user__status {
+	margin-top: 20px;
+	font-size: 16px;
+	font-style: italic;
+}
+
+.user__location {
+	text-align: right;
+	font-size: 18px;
+}
+
+.country {
+	font-weight: bold;
+}

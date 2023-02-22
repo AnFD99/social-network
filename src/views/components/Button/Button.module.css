@@ -1,0 +1,36 @@
+.btn {
+	padding: 8px 16px;
+	text-align: center;
+
+	border: none;
+	border-radius: 10px;
+
+	font-family: inherit;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 1;
+	cursor: pointer;
+
+	color: white;
+	background-color: darkcyan;
+}
+
+.btn:disabled {
+	background-color: cadetblue;
+	cursor: default;
+}
+
+/* .follow,
+.unfollow {
+	width: 80%;
+} */
+
+.unfollow {
+	color: #008b8b;
+	background-color: gainsboro;
+}
+
+.unfollow:disabled {
+	background-color: darkgrey;
+	cursor: default;
+}

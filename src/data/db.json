@@ -1,0 +1,239 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Kot Matroskin",
+      "email": "kot@matroskin.ru",
+      "password": "$2b$04$H.rN3qK6IVSb9TzZ5NC57uXZARRPgKZyR/qSFg.iEi/JPn8VZyQh6",
+      "photos": {
+        "avatarImageUrl": "https://tlum.ru/uploads/95a9ef20f56495045a8829671ec5da602ae64fd0683c1adafde4a8debd95ce69.jpeg",
+        "coverImageUrl": "https://static.life.ru/posts/2018/04/1104837/a3fe96d6599834ade51c73277349e979.png"
+      },
+      "followed": true,
+      "location": {
+        "city": "Prostokvashino",
+        "country": "Russia"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Dyadya Fyodor",
+      "email": "dyadya.fyodor@gmail.com",
+      "password": "$2b$04$H.rN3qK6IVSb9TzZ5NC57uXZARRPgKZyR/qSFg.iEi/JPn8VZyQh6",
+      "photos": {
+        "avatarImageUrl": "https://pbs.twimg.com/media/DutIoQIW4AAJLQ4.jpg:large",
+        "coverImageUrl": "http://aakr.ru/wp-content/uploads/2018/06/prostokvashino.jpg"
+      },
+      "followed": false,
+      "location": {
+        "city": "Prostokvashino",
+        "country": "Russia"
+      },
+      "status": "Poumnee nekotoryh akademikov"
+    },
+    {
+      "id": 3,
+      "name": "Sharik",
+      "email": "sharik@gmail.com",
+      "password": "$2b$04$H.rN3qK6IVSb9TzZ5NC57uXZARRPgKZyR/qSFg.iEi/JPn8VZyQh6",
+      "photos": {
+        "avatarImageUrl": "https://mtdata.ru/u18/photo2C78/20630365371-0/original.png",
+        "coverImageUrl": "https://www.kp.ru/share/i/12/10641775/"
+      },
+      "followed": true,
+      "location": {
+        "city": "Prostokvashino",
+        "country": "Russia"
+      },
+      "status": "Ya iz prostih sobak, ne iz porodistih"
+    },
+    {
+      "id": 4,
+      "name": "Pochtalon Pechkin",
+      "email": "pochtalon.pechkin@gmail.com",
+      "password": "$2b$04$H.rN3qK6IVSb9TzZ5NC57uXZARRPgKZyR/qSFg.iEi/JPn8VZyQh6",
+      "photos": {
+        "avatarImageUrl": "https://ss.metronews.ru/userfiles/materials/133/1331295/858x540_804457b8.jpg",
+        "coverImageUrl": "https://ss.metronews.ru/userfiles/materials/133/1331299/858x540_89f21b93.jpg"
+      },
+      "followed": false,
+      "location": {
+        "city": "Prostokvashino",
+        "country": "Russia"
+      },
+      "status": "Muzhchina let pyatidesyati s hvostikom"
+    },
+    {
+      "id": 5,
+      "name": "Hvatajka",
+      "email": "hvatajka@gmail.com",
+      "password": "$2b$04$H.rN3qK6IVSb9TzZ5NC57uXZARRPgKZyR/qSFg.iEi/JPn8VZyQh6",
+      "photos": {
+        "avatarImageUrl": "https://ic.pics.livejournal.com/padolski/33439366/1074381/1074381_original.png",
+        "coverImageUrl": "https://static.life.ru/posts/2018/04/1104837/a3fe96d6599834ade51c73277349e979.png"
+      },
+      "followed": true,
+      "location": {
+        "city": "Prostokvashino",
+        "country": "Russia"
+      },
+      "status": "Kto tam?"
+    },
+    {
+      "id": 6,
+      "name": "Vera Pavlovna",
+      "email": "vera.pavlovna@gmail.com",
+      "password": "$2b$04$H.rN3qK6IVSb9TzZ5NC57uXZARRPgKZyR/qSFg.iEi/JPn8VZyQh6",
+      "photos": {
+        "avatarImageUrl": "https://img.joinfo.com/i/2018/05/800x0/5aedfc934a7a4.jpg",
+        "coverImageUrl": "http://luchangela.ru/wp-content/uploads/2018/10/Sezon-dozhdej_1.jpg"
+      },
+      "followed": true,
+      "location": {
+        "city": "Prostokvashino",
+        "country": "Russia"
+      },
+      "status": "Tama-tama"
+    },
+    {
+      "id": 7,
+      "name": "Mama",
+      "email": "mama@gmail.com",
+      "password": "$2b$04$H.rN3qK6IVSb9TzZ5NC57uXZARRPgKZyR/qSFg.iEi/JPn8VZyQh6",
+      "photos": {
+        "avatarImageUrl": "https://a.d-cd.net/6f61cc04k2e9-1920.jpg",
+        "coverImageUrl": "https://static.life.ru/posts/2018/04/1104837/a3fe96d6599834ade51c73277349e979.png"
+      },
+      "followed": false,
+      "location": {
+        "city": "Prostokvashino",
+        "country": "Russia"
+      },
+      "status": "I love my kids!"
+    },
+    {
+      "id": 8,
+      "name": "Papa",
+      "email": "papa@gmail.com",
+      "password": "$2b$04$H.rN3qK6IVSb9TzZ5NC57uXZARRPgKZyR/qSFg.iEi/JPn8VZyQh6",
+      "photos": {
+        "avatarImageUrl": "https://sun9-59.userapi.com/impg/bBgpOMHKLZ6m_bt-kL5qHtz_IMWDVDhGSoqr9Q/Mphvq8FzaJ4.jpg?size=600x337&quality=96&sign=eafe00b0a7676a0376c5ee10254f0e55&c_uniq_tag=6dgmasOppeDq6hulNR6-MXtcUIpLB2Kj6at4WtR3dZI&type=album",
+        "coverImageUrl": "https://static.life.ru/posts/2018/04/1104837/a3fe96d6599834ade51c73277349e979.png"
+      },
+      "followed": false,
+      "location": {
+        "city": "Prostokvashino",
+        "country": "Russia"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Murka",
+      "email": "murka@gmail.com",
+      "password": "$2b$04$H.rN3qK6IVSb9TzZ5NC57uXZARRPgKZyR/qSFg.iEi/JPn8VZyQh6",
+      "photos": {
+        "avatarImageUrl": "https://webrelax.com/uploads/posts/2019-05/pes-sharik-obuchitsya-gipnozu-v-novoy-serii-multfilma-prostokvashino_1.jpg",
+        "coverImageUrl": "https://slovnet.ru/wp-content/uploads/2018/08/12-87.jpg"
+      },
+      "followed": false,
+      "location": {
+        "city": "Prostokvashino",
+        "country": "Russia"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Gavryusha",
+      "email": "gavrysha@gmail.com",
+      "password": "$2b$04$H.rN3qK6IVSb9TzZ5NC57uXZARRPgKZyR/qSFg.iEi/JPn8VZyQh6",
+      "photos": {
+        "avatarImageUrl": "https://static.mk.ru/upload/entities/2018/08/15/photoreportsImages/detailPicture/b7/6a/ed/e3/1784293_2175843.jpg",
+        "coverImageUrl": "https://slovnet.ru/wp-content/uploads/2018/08/12-87.jpg"
+      },
+      "followed": false,
+      "location": {
+        "city": "Prostokvashino",
+        "country": "Russia"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Bobyor",
+      "email": "bobyor@gmail.com",
+      "password": "$2b$04$H.rN3qK6IVSb9TzZ5NC57uXZARRPgKZyR/qSFg.iEi/JPn8VZyQh6",
+      "photos": {
+        "avatarImageUrl": "https://afishasakhcom.ru/p/events/17990/202012011103011.jpg",
+        "coverImageUrl": "http://thumbs.dfs.ivi.ru/storage23/contents/1/b/6e0e21e00cff7c839b576e4c0fd162.jpg"
+      },
+      "followed": false,
+      "location": {
+        "city": "Prostokvashino",
+        "country": "Russia"
+      }
+    }
+  ],
+  "auth": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "Kot Matroskin"
+    }
+  ],
+  "statuses": [
+    {
+      "userId": 1,
+      "id": 1,
+      "text": "I'm cat, my name is Kot Matroskin and I like tasty food"
+    },
+    {
+      "userId": 2,
+      "id": 2,
+      "text": "Poumnee nekotoryh akademikov"
+    },
+    {
+      "userId": 3,
+      "id": 3,
+      "text": "Ya iz prostih sobak, ne iz porodistih"
+    },
+    {
+      "userId": 4,
+      "id": 4,
+      "text": "Muzhchina let pyatidesyati s hvostikom"
+    },
+    {
+      "userId": 5,
+      "id": 5,
+      "text": "Kto tam?"
+    },
+    {
+      "userId": 6,
+      "id": 6,
+      "text": "Tama-tama"
+    },
+    {
+      "userId": 7,
+      "id": 7,
+      "text": "I love my kids!"
+    },
+    {
+      "userId": 8,
+      "id": 8,
+      "text": ""
+    },
+    {
+      "userId": 9,
+      "id": 9,
+      "text": ""
+    },
+    {
+      "userId": 10,
+      "id": 10,
+      "text": ""
+    },
+    {
+      "userId": 11,
+      "id": 11,
+      "text": ""
+    }
+  ]
+}

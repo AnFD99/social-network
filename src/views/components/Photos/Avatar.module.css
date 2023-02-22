@@ -1,0 +1,35 @@
+.person__avatar {
+	display: block;
+	width: 150px;
+	height: 150px;
+	margin-right: 20px;
+	overflow: hidden;
+
+	border-radius: 50%;
+
+	position: relative;
+}
+
+.person__img {
+	width: 310px;
+	border-radius: 50%;
+	object-fit: cover;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	transform: translate3d(-50%, -50%, 0);
+}
+
+.noneImg {
+	width: 180px;
+	border-radius: 50%;
+	object-fit: cover;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	transform: translate3d(-50%, -50%, 0);
+}
