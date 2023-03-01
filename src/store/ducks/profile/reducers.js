@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import initialState from '../initialState'
+import initialState from '../initialState.ts'
 
 const profileReducer = createSlice({
    name: 'profile',
