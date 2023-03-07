@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import styles from './Profilepage.module.css'
 import Preloader from 'views/components/Preloader/Preloader'
 import MyPosts from './MyPosts/MyPosts'
@@ -10,8 +10,27 @@ import { connect } from 'react-redux'
 import Cover from 'views/components/Photos/Cover'
 import Avatar from 'views/components/Photos/Avatar'
 import { loadingSelectors } from 'store/ducks/loading'
+import { AppStateType } from 'store/store'
 
-const Profilepage = (props) => {
+type MapStateType = {
+   authId: string
+   isLoading: boolean
+   isAuth: boolean
+   cover: string
+   avatar: string
+   name: string
+   status: string
+}
+
+type MapDispatchType = {
+   savePhoto: (id: number, photo: string) => void
+   getProfile: (id: number) => void
+   updateStatus: (id: number, status: string) => void
+}
+
+type PropsType = MapStateType & MapDispatchType
+
+const Profilepage: FC<PropsType> = (props) => {
    let { id } = useParams()
 
    useEffect(() => {
@@ -51,7 +70,6 @@ const Profilepage = (props) => {
                   authId={props.authId}
                   status={props.status}
                   updateStatus={props.updateStatus}
-                  getStatus={props.getStatus}
                />
             </div>
          </div>
@@ -60,7 +78,7 @@ const Profilepage = (props) => {
    )
 }
 
-let mapStateToProps = (state) => ({
+let mapStateToProps = (state: AppStateType): MapStateType => ({
    status: profileSelectors.getProfileStatus(state),
    cover: profileSelectors.getProfileCover(state),
    avatar: profileSelectors.getProfileAvatar(state),
@@ -76,6 +94,8 @@ let mapDispatchToProps = {
    savePhoto: profileOperations.getPhoto,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profilepage)
-
+export default connect<MapStateType, MapDispatchType, {}, AppStateType>(
+   mapStateToProps,
+   mapDispatchToProps,
+)(Profilepage)
 
