@@ -1,12 +1,18 @@
 import { helpers } from 'utils'
-import { createSlice } from '@reduxjs/toolkit'
-import initialState from '../initialState.ts'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import initialState from '../initialState'
+import { UserType } from 'models'
+
+type ToggleFollowingType = {
+   fetching: boolean
+   userId: number
+}
 
 const usersReducer = createSlice({
    name: 'users',
    initialState: initialState.users,
    reducers: {
-      followSuccess: (state, action) => {
+      followSuccess: (state, action: PayloadAction<number>) => {
          state.usersList = helpers.updateObjectInArray(
             state.usersList,
             action.payload,
@@ -14,7 +20,7 @@ const usersReducer = createSlice({
             { followed: true },
          )
       },
-      unfollowSuccess: (state, action) => {
+      unfollowSuccess: (state, action: PayloadAction<number>) => {
          state.usersList = helpers.updateObjectInArray(
             state.usersList,
             action.payload,
@@ -22,13 +28,18 @@ const usersReducer = createSlice({
             { followed: false },
          )
       },
-      setUsers: (state, action) => {
+      setUsers: (state, action: PayloadAction<UserType[]>) => {
          state.usersList = action.payload
       },
-      toggleFollowingProgress: (state, { fetching, userId }) => {
-         state.followingInProgress = fetching
-            ? [...state.followingInProgress, userId]
-            : state.followingInProgress.filter((id) => id !== userId)
+      toggleFollowingProgress: (
+         state,
+         action: PayloadAction<ToggleFollowingType>,
+      ) => {
+         state.followingInProgress = action.payload.fetching
+            ? [...state.followingInProgress, action.payload.userId]
+            : state.followingInProgress.filter(
+                 (id) => id !== action.payload.userId,
+              )
       },
    },
 })
@@ -95,3 +106,4 @@ export default reducer
 //    }
 
 // }
+

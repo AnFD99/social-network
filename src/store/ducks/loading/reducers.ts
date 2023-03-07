@@ -1,20 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit'
-import initialState from '../initialState.ts'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import initialState from '../initialState'
 
 const loadingReducer = createSlice({
    name: 'loading',
    initialState: initialState.loading,
    reducers: {
-      toggleAuthLoading: (state, action) => {
+      toggleAuthLoading: (state, action: PayloadAction<boolean>) => {
          state.authLoading = action.payload
       },
-      toggleProfileLoading: (state, action) => {
+      toggleProfileLoading: (state, action: PayloadAction<boolean>) => {
          state.profileLoading = action.payload
       },
-      toggleDialogsLoading: (state, action) => {
+      toggleDialogsLoading: (state, action: PayloadAction<boolean>) => {
          state.dialogsLoading = action.payload
       },
-      toggleUsersLoading: (state, action) => {
+      toggleUsersLoading: (state, action: PayloadAction<boolean>) => {
          state.usersLoading = action.payload
       },
    },
@@ -30,6 +30,10 @@ export const {
 } = actions
 
 export default reducer
+
+
+
+
 
 
 

@@ -1,5 +1,6 @@
+/* eslint-disable no-empty-pattern */
 import { createSlice } from '@reduxjs/toolkit'
-import initialState from '../initialState.ts'
+import initialState from '../initialState'
 
 const dialogsReducer = createSlice({
    name: 'dialogs',
@@ -10,8 +11,7 @@ const dialogsReducer = createSlice({
 
 const { actions, reducer } = dialogsReducer
 
-export const {
-} = actions
+export const {} = actions
 
 export default reducer
 

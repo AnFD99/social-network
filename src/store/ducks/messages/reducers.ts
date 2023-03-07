@@ -1,11 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit'
-import initialState from '../initialState.ts'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import initialState from '../initialState'
 
 const messageReducer = createSlice({
    name: 'messages',
    initialState: initialState.messages,
    reducers: {
-      sendMessage: (state, action) => {
+      sendMessage: (state, action: PayloadAction<string>) => {
          let newMessage = {
             id: 4,
             message: action.payload,
@@ -20,4 +20,5 @@ const { actions, reducer } = messageReducer
 export const { sendMessage } = actions
 
 export default reducer
+
 

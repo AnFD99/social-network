@@ -1,21 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit'
-import initialState from '../initialState.ts'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import initialState from '../initialState'
 
 const postsReducer = createSlice({
    name: 'posts',
    initialState: initialState.posts,
    reducers: {
-      addPost: (state, action) => {
+      addPost: (state, action: PayloadAction<string>) => {
          let newPost = {
             id: 3,
-            message: action.payload,
+            post: action.payload,
          }
          state.push(newPost)
       },
-      deletePost: (state, action) => {
+      deletePost: (state, action: PayloadAction<number>) => {
          state.filter((p) => p.id !== action.payload)
       },
-      
    },
 })
 
@@ -27,6 +26,8 @@ export const {
 } = actions
 
 export default reducer
+
+
 
 
 

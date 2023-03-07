@@ -1,3 +1,12 @@
+import {
+   AuthUserType,
+   DialogType,
+   LocationType,
+   MessageType,
+   PostType,
+   UserType,
+} from 'models'
+
 const initialState = {
    auth: { user: null as AuthUserType, isAuth: false },
    loading: {
@@ -41,47 +50,7 @@ const initialState = {
    },
 }
 
-export const InitialStateType = typeof initialState
-
-type AuthUserType = {
-   id: string
-   email: string
-   name: string
-}
-
-type MessageType = {
-   id: number
-   message: string
-}
-
-type DialogType = {
-   id: number
-   name: string
-}
-
-type PostType = {
-   id: number
-   post: string
-}
-
-type UserType = {
-   id: number | null
-   name: string | null
-   email: string | null
-   photos: PhotosType
-   status: string | null
-   location: LocationType
-}
-
-type PhotosType = {
-   cover: string
-   avatar: string
-}
-
-type LocationType = {
-   city: string
-   country: string
-}
+// export const InitialStateType = typeof initialState
 
 export default initialState
 

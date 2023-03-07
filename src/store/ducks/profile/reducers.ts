@@ -1,29 +1,30 @@
-import { createSlice } from '@reduxjs/toolkit'
-import initialState from '../initialState.ts'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import initialState from '../initialState'
+import { LocationType } from 'models'
 
 const profileReducer = createSlice({
    name: 'profile',
    initialState: initialState.profile,
    reducers: {
-      setProfileId: (state, action) => {
+      setProfileId: (state, action: PayloadAction<number>) => {
          state.id = action.payload
       },
-      setProfileName: (state, action) => {
+      setProfileName: (state, action: PayloadAction<string>) => {
          state.name = action.payload
       },
-      setProfileEmail: (state, action) => {
+      setProfileEmail: (state, action: PayloadAction<string>) => {
          state.email = action.payload
       },
-      setProfileCover: (state, action) => {
+      setProfileCover: (state, action: PayloadAction<string>) => {
          state.photos.cover = action.payload
       },
-      setProfileAvatar: (state, action) => {
+      setProfileAvatar: (state, action: PayloadAction<string>) => {
          state.photos.avatar = action.payload
       },
-      setProfileLocation: (state, action) => {
+      setProfileLocation: (state, action: PayloadAction<LocationType>) => {
          state.location = action.payload
       },
-      setProfileStatus: (state, action) => {
+      setProfileStatus: (state, action: PayloadAction<string>) => {
          state.status = action.payload
       },
    },
@@ -79,6 +80,13 @@ export const {
 } = actions
 
 export default reducer
+
+
+
+
+
+
+
 
 
 
