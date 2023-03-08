@@ -13,7 +13,7 @@ import { loadingSelectors } from 'store/ducks/loading'
 import { AppStateType } from 'store/store'
 
 type MapStateType = {
-   authId: string
+   authId: number | string
    isLoading: boolean
    isAuth: boolean
    cover: string
@@ -23,22 +23,22 @@ type MapStateType = {
 }
 
 type MapDispatchType = {
-   savePhoto: (id: number, photo: string) => void
-   getProfile: (id: number) => void
+   savePhoto: (id: number | string, photo: string) => void
+   getProfile: (id: number | string) => void
    updateStatus: (id: number, status: string) => void
 }
 
 type PropsType = MapStateType & MapDispatchType
 
 const Profilepage: FC<PropsType> = (props) => {
-   let { id } = useParams()
+   let { id } = useParams() as any
 
    useEffect(() => {
       refreshProfile(id)
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [id])
 
-   const refreshProfile = (id) => {
+   const refreshProfile = (id: string | number) => {
       if (!id) {
          id = props.authId
          if (!id) {
@@ -59,6 +59,7 @@ const Profilepage: FC<PropsType> = (props) => {
             userId={id}
             authId={props.authId}
             savePhoto={props.savePhoto}
+            isLoading={props.isLoading}
          />
          <div className={styles.person}>
             <Avatar avatar={props.avatar} />

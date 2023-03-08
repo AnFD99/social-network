@@ -41,11 +41,14 @@ export const updateStatus = (id, status) => {
 
 export const getPhoto = (id, photo) => {
    return async (dispatch) => {
+      dispatch(loadingOperations.toggleProfileLoading(true))
       try {
          await profileAPI.uploadPhoto(id, photo)
          dispatch(getProfile(id))
       } catch (error) {
          console.log(error)
+      } finally {
+         dispatch(loadingOperations.toggleProfileLoading(false))
       }
    }
 }
@@ -59,6 +62,8 @@ export {
    setProfileAvatar,
    setProfileLocation,
 }
+
+
 
 
 

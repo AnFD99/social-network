@@ -1,21 +1,29 @@
-import React, { useEffect } from 'react'
+import React, { ChangeEvent, FC, useEffect } from 'react'
 import styles from './Cover.module.css'
 import { helpers } from 'utils'
 import { useState } from 'react'
 import Preloader from '../Preloader/Preloader'
 
-const Cover = (props) => {
-   const [cover, setCover] = useState(props.cover)
-   const [isLoading, setIsLoading] = useState(false)
+type PropsType = {
+   cover: string
+   authId: number | string
+   userId: number | string
+   isLoading: boolean
+   savePhoto: (id: number | string, photo: string) => void
+}
+
+const Cover: FC<PropsType> = (props) => {
+   const [cover, setCover] = useState<string>(props.cover)
+   const [isLoading, setIsLoading] = useState<boolean>(false)
 
    useEffect(() => {
       if (props.cover !== cover) {
          setCover(props.cover)
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [props.profile])
+   }, [props.cover])
 
-   const onMainPhotoSelected = async (e) => {
+   const onMainPhotoSelected = async (e: ChangeEvent<HTMLInputElement>) => {
       if (e.target.files.length) {
          const photo = e.target.files[0]
          const base64 = await helpers.convertToBase64(photo)
@@ -32,7 +40,7 @@ const Cover = (props) => {
 
    return (
       <div className={styles.cover}>
-         {isLoading ? (
+         {props.isLoading || isLoading ? (
             <Preloader />
          ) : (
             <>
@@ -64,4 +72,10 @@ const Cover = (props) => {
 }
 
 export default Cover
+
+
+
+
+
+
 

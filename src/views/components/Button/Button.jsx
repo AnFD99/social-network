@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Button.module.css'
 
-const Button = ({ children, unfollow, disabled, ...props }) => {
+const Button = ({ children, disabled, ...props }) => {
    return (
       <button
          {...props}

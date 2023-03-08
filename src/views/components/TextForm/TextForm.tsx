@@ -1,10 +1,20 @@
 import Button from 'views/components/Button/Button'
 import { Field, Form, Formik } from 'formik'
 import * as Yup from 'yup'
-import React from 'react'
+import React, { FC } from 'react'
 import styles from './TextForm.module.css'
 
-const initialValue = {
+type FormValuesType = {
+   text: string
+}
+
+type PropsType = {
+   headerTitle: string
+   buttonTitle: string
+   addText: (text: string) => void
+}
+
+const initialValue: FormValuesType = {
    text: '',
 }
 
@@ -15,8 +25,16 @@ const TextSchema = Yup.object().shape({
       .max(50, 'Too Long!'),
 })
 
-const TextForm = ({ addText, headerTitle, buttonTitle, ...props }) => {
-   const onFormSubmit = (values, { resetForm, setSubmitting }) => {
+const TextForm: FC<PropsType> = ({
+   addText,
+   headerTitle,
+   buttonTitle,
+   ...props
+}) => {
+   const onFormSubmit = (
+      values: FormValuesType,
+      { resetForm, setSubmitting },
+   ) => {
       setTimeout(() => {
          addText(values.text)
          resetForm()
@@ -50,7 +68,6 @@ const TextForm = ({ addText, headerTitle, buttonTitle, ...props }) => {
                      name='text'
                      value={values.text}
                      onChange={handleChange}
-                     placeholder={props.placeholder}
                   />
 
                   {errors.text && touched.text && (
@@ -68,11 +85,4 @@ const TextForm = ({ addText, headerTitle, buttonTitle, ...props }) => {
 }
 
 export { TextForm }
-
-
-
-
-
-
-
 
