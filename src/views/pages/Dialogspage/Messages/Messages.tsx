@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { MessageItem } from 'views/components/MessageItem/MessageItem'
 import styles from './Messages.module.css'
 import { TextForm } from 'views/components/TextForm/TextForm'
+import { MessageType } from 'models'
 
-const Messages = (props) => {
+type PropsType = {
+   messages: MessageType[]
+   sendMessage: (text: string) => void
+}
+
+const Messages: FC<PropsType> = (props) => {
    const messagesElements = props.messages.map((m) => (
       <MessageItem message={m.message} key={m.id} id={m.id} />
    ))

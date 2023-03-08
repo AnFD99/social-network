@@ -9,7 +9,7 @@ type FormValuesType = {
 }
 
 type PropsType = {
-   headerTitle: string
+   headerTitle?: string
    buttonTitle: string
    addText: (text: string) => void
 }
