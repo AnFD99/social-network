@@ -1,15 +1,23 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { NavLink } from 'react-router-dom'
 import styles from './User.module.css'
 import avatar from '../../../assets/images/unnamed.jpg'
+import { UserType } from 'models'
 
-const User = (props) => {
+type PropsType = {
+   user: UserType
+   followingInProgress: number[]
+   unfollow: (id: number | string) => void
+   follow: (id: number | string) => void
+}
+
+const User: FC<PropsType> = (props) => {
    return (
       <div className={styles.user__block}>
          <div className={styles.user__left}>
             <NavLink to={`/profile/${props.user._id}`}>
                <div className={styles.avatar}>
-                  {!props.user.avatarImage ? (
+                  {!props.user.photos.avatar ? (
                      <img
                         src={avatar}
                         className={styles.noneImg}
@@ -17,14 +25,14 @@ const User = (props) => {
                      />
                   ) : (
                      <img
-                        src={props.user.avatarImage}
+                        src={props.user.photos.avatar}
                         className={styles.img}
                         alt='avatar'
                      />
                   )}
                </div>
             </NavLink>
-            <div className={styles.btn}>
+            {/* <div className={styles.btn}>
                {props.user.followed ? (
                   <button
                      disabled={props.followingInProgress.some(
@@ -50,12 +58,14 @@ const User = (props) => {
                      Follow
                   </button>
                )}
-            </div>
+            </div> */}
          </div>
          <div className={styles.user__right}>
             <div className={styles.user__information}>
                <div className={styles.user__name}>{props.user.name}</div>
-               <div className={styles.user__status}>{props.user.status || "---"}</div>
+               <div className={styles.user__status}>
+                  {props.user.status || '---'}
+               </div>
             </div>
             <div className={styles.user__location}>
                <div className={styles.city}>{props.user.location.city}</div>
@@ -69,5 +79,8 @@ const User = (props) => {
 }
 
 export { User }
+
+
+
 
 

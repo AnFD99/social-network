@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { FC, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { usersOperations, usersSelectors } from 'store/ducks/users'
 import Paginator from 'views/components/Paginator/Paginator'
@@ -6,14 +7,32 @@ import Preloader from 'views/components/Preloader/Preloader'
 import { User } from './User'
 import { loadingSelectors } from 'store/ducks/loading'
 import { paginationSelectors } from 'store/ducks/pagination'
+import { AppStateType } from 'store/store'
+import { UserType } from 'models'
 
-const UserItems = (props) => {
+type MapStateType = {
+   currentPage: number
+   pageSize: number
+   totalUsersCount: number
+   isLoading: boolean
+   users: UserType[]
+   followingInProgress: number[]
+}
+
+type MapDispatchType = {
+   getUsers: (page: number, size: number) => void
+   unfollow: (id: string | number) => void
+   follow: (id: string | number) => void
+}
+
+type PropsType = MapStateType & MapDispatchType
+
+const UserItems: FC<PropsType> = (props) => {
    useEffect(() => {
       props.getUsers(props.currentPage, props.pageSize)
-      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [props.currentPage, props.pageSize])
 
-   const onPageChanged = (pageNum) => {
+   const onPageChanged = (pageNum: number) => {
       props.getUsers(pageNum, props.pageSize)
    }
 
@@ -23,9 +42,7 @@ const UserItems = (props) => {
             <Preloader />
          ) : (
             <div>
-               <Paginator
-                  onPageChange={onPageChanged}
-               />
+               <Paginator onPageChange={onPageChanged} />
                {props.users.map((u) => {
                   return (
                      <User
@@ -43,7 +60,7 @@ const UserItems = (props) => {
    )
 }
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state: AppStateType): MapStateType => {
    return {
       users: usersSelectors.getUsersList(state),
       pageSize: paginationSelectors.getPageSize(state),
@@ -54,11 +71,14 @@ let mapStateToProps = (state) => {
    }
 }
 
-let mapDispatchToProps = {
+let mapDispatchToProps: MapDispatchType = {
    getUsers: usersOperations.getUsers,
    follow: usersOperations.follow,
    unfollow: usersOperations.unfollow,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserItems)
+export default connect<MapStateType, MapDispatchType, {}, AppStateType>(
+   mapStateToProps,
+   mapDispatchToProps,
+)(UserItems)
 
