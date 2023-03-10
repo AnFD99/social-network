@@ -4,6 +4,7 @@ import * as reducers from './ducks/index'
 let store = configureStore({ reducer: reducers })
 
 export type AppStateType = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
 
 export { store }
 
@@ -14,6 +15,7 @@ export { store }
 //    auth: authReducer,
 //    init: initReducer,
 // })
+
 
 
 

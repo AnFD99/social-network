@@ -1,3 +1,6 @@
+import { AnyAction, ThunkAction } from "@reduxjs/toolkit"
+import { AppStateType } from "store/store"
+
 export type AuthUserType = {
    id: string
    email: string
@@ -20,7 +23,8 @@ export type PostType = {
 }
 
 export type UserType = {
-   id: number | null
+   id?: number | null
+   _id?: number | null
    name: string | null
    email: string | null
    photos: PhotosType
@@ -37,3 +41,10 @@ export type LocationType = {
    city: string
    country: string
 }
+
+export type ThunkActionType = ThunkAction<
+   Promise<void>,
+   AppStateType,
+   unknown,
+   AnyAction
+>

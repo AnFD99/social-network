@@ -2,13 +2,14 @@ import {
    followSuccess,
    unfollowSuccess,
    setUsers,
-   toggleFollowingProgress,
+   // toggleFollowingProgress,
 } from './reducers'
 import { usersAPI } from '../../services'
 import { loadingOperations } from '../loading'
 import { paginationOperations } from '../pagination'
+import { ThunkActionType } from 'models'
 
-export const getUsers = (currentPage, pageSize) => {
+export const getUsers = (currentPage: number, pageSize: number): ThunkActionType => {
    return async (dispatch) => {
       dispatch(loadingOperations.toggleUsersLoading(true))
       try {
@@ -28,21 +29,21 @@ export const getUsers = (currentPage, pageSize) => {
 
 // Follow unfollow functon
 const followUnfollowFlow = async (
-   dispatch,
-   userId,
-   apiMethod,
-   actionCreator,
+   dispatch: any,
+   userId: number | string,
+   apiMethod: any,
+   actionCreator: any,
 ) => {
-   dispatch(toggleFollowingProgress(true, userId))
+   // dispatch(toggleFollowingProgress(true, userId))
 
    let response = await apiMethod(userId)
    if (response.status === 200) {
       dispatch(actionCreator(userId))
-      dispatch(toggleFollowingProgress(false, userId))
+      // dispatch(toggleFollowingProgress(false, userId))
    }
 }
 
-export const follow = (id) => {
+export const follow = (id: string | number): ThunkActionType => {
    return async (dispatch) => {
       let apiMethod = usersAPI.setFollow.bind(usersAPI)
       let actionCreator = followSuccess
@@ -51,7 +52,7 @@ export const follow = (id) => {
    }
 }
 
-export const unfollow = (id) => {
+export const unfollow = (id: string | number): ThunkActionType => {
    return async (dispatch) => {
       let apiMethod = usersAPI.setUnfollow.bind(usersAPI)
       let actionCreator = unfollowSuccess
@@ -60,5 +61,7 @@ export const unfollow = (id) => {
    }
 }
 
-export { followSuccess, unfollowSuccess, setUsers, toggleFollowingProgress }
+export { followSuccess, unfollowSuccess, setUsers }
+
+
 

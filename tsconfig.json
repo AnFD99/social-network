@@ -1,0 +1,14 @@
+{
+   "compilerOptions": {
+      "jsx": "react",
+      "baseUrl": "src",
+      "module": "commonjs",
+      "allowSyntheticDefaultImports": true,
+   },
+   "include": ["src", "jest.config.js", "css.d.ts"]
+}
+
+
+
+
+

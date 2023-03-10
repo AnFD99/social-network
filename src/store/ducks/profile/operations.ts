@@ -1,3 +1,4 @@
+import { ThunkActionType } from 'models'
 import { profileAPI } from '../../services'
 import { loadingOperations } from '../loading'
 import {
@@ -10,7 +11,7 @@ import {
    setProfileLocation,
 } from './reducers'
 
-export const getProfile = (id) => {
+export const getProfile = (id: number | string): ThunkActionType => {
    return async (dispatch) => {
       dispatch(loadingOperations.toggleProfileLoading(true))
       try {
@@ -31,7 +32,7 @@ export const getProfile = (id) => {
    }
 }
 
-export const updateStatus = (id, status) => {
+export const updateStatus = (id: number | string, status: string): ThunkActionType => {
    return async (dispatch) => {
       let response = await profileAPI.updateStatus(id, status)
 
@@ -39,7 +40,7 @@ export const updateStatus = (id, status) => {
    }
 }
 
-export const getPhoto = (id, photo) => {
+export const getPhoto = (id: number | string, photo: string): ThunkActionType => {
    return async (dispatch) => {
       dispatch(loadingOperations.toggleProfileLoading(true))
       try {
@@ -62,6 +63,13 @@ export {
    setProfileAvatar,
    setProfileLocation,
 }
+
+
+
+
+
+
+
 
 
 

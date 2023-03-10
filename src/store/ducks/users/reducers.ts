@@ -3,10 +3,10 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import initialState from '../initialState'
 import { UserType } from 'models'
 
-type ToggleFollowingType = {
-   fetching: boolean
-   userId: number
-}
+// type ToggleFollowingType = {
+//    fetching: boolean
+//    userId: number
+// }
 
 const usersReducer = createSlice({
    name: 'users',
@@ -31,16 +31,16 @@ const usersReducer = createSlice({
       setUsers: (state, action: PayloadAction<UserType[]>) => {
          state.usersList = action.payload
       },
-      toggleFollowingProgress: (
-         state,
-         action: PayloadAction<ToggleFollowingType>,
-      ) => {
-         state.followingInProgress = action.payload.fetching
-            ? [...state.followingInProgress, action.payload.userId]
-            : state.followingInProgress.filter(
-                 (id) => id !== action.payload.userId,
-              )
-      },
+      // toggleFollowingProgress: (
+      //    state,
+      //    action: PayloadAction<ToggleFollowingType>,
+      // ) => {
+      //    state.followingInProgress = action.payload.fetching
+      //       ? [...state.followingInProgress, action.payload.userId]
+      //       : state.followingInProgress.filter(
+      //            (id) => id !== action.payload.userId,
+      //         )
+      // },
    },
 })
 
@@ -50,7 +50,7 @@ export const {
    followSuccess,
    unfollowSuccess,
    setUsers,
-   toggleFollowingProgress,
+   // toggleFollowingProgress,
 } = actions
 
 export default reducer

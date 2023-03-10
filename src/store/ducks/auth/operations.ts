@@ -1,8 +1,9 @@
+import { ThunkActionType } from 'models'
 import { authAPI } from '../../services'
 import { loadingOperations } from '../loading'
 import { toggleIsAuth, setAuthUserData } from './reducers'
 
-export const checkAuth = () => {
+export const checkAuth = (): ThunkActionType => {
    return async (dispatch) => {
       dispatch(loadingOperations.toggleAuthLoading(true))
       try {
@@ -18,7 +19,7 @@ export const checkAuth = () => {
    }
 }
 
-export const getLogin = (email, password) => {
+export const getLogin = (email: string, password: string): ThunkActionType => {
    return async (dispatch) => {
       try {
          const response = await authAPI.login(email, password)
@@ -30,7 +31,11 @@ export const getLogin = (email, password) => {
    }
 }
 
-export const getRegistration = (email, password, name) => {
+export const getRegistration = (
+   email: string,
+   password: string,
+   name: string,
+): ThunkActionType => {
    return async (dispatch) => {
       try {
          const response = await authAPI.registration(email, password, name)
@@ -42,7 +47,7 @@ export const getRegistration = (email, password, name) => {
    }
 }
 
-export const setLogout = () => {
+export const setLogout = (): ThunkActionType => {
    return async (dispatch) => {
       dispatch(loadingOperations.toggleAuthLoading(true))
       try {
@@ -57,6 +62,13 @@ export const setLogout = () => {
 }
 
 export { setAuthUserData, toggleIsAuth }
+
+
+
+
+
+
+
 
 
 
