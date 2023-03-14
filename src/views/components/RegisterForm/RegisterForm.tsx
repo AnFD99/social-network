@@ -1,13 +1,35 @@
 import Button from 'views/components/Button/Button'
-import React from 'react'
+import React, { FC } from 'react'
 import styles from './RegisterForm.module.css'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import { connect } from 'react-redux'
 import { authOperations, authSelectors } from 'store/ducks/auth'
 import { Navigate } from 'react-router-dom'
+import { AppStateType } from 'store/store'
 
-const initialValue = {
+type FormValuesType = {
+   name: string
+   email: string
+   password: string
+}
+
+type MapStateType = {
+   isAuth: boolean
+}
+
+type MapDispatchType = {
+   registration: (email: string, password: string, name: string) => void
+}
+
+type OwnPropsType = {
+   headerTitle: string
+   buttonTitle: string
+}
+
+type PropsType = MapStateType & MapDispatchType & OwnPropsType
+
+const initialValue: FormValuesType = {
    name: '',
    email: '',
    password: '',
@@ -25,8 +47,8 @@ const SignupSchema = Yup.object().shape({
       .required('Required'),
 })
 
-const RegisterForm = ({ buttonTitle, ...props }) => {
-   const onFormSubmit = async (values, { setSubmitting }) => {
+const RegisterForm: FC<PropsType> = ({ buttonTitle, ...props }) => {
+   const onFormSubmit = async (values: FormValuesType, { setSubmitting }) => {
       try {
          await props.registration(values.email, values.password, values.name)
          setSubmitting(false)
@@ -107,15 +129,12 @@ const RegisterForm = ({ buttonTitle, ...props }) => {
    )
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppStateType): MapStateType => ({
    isAuth: authSelectors.getIsAuth(state),
 })
-const mapDispatchToProps = {
+const mapDispatchToProps: MapDispatchType = {
    registration: authOperations.getRegistration,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm)
-
-
-
 

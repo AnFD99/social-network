@@ -1,5 +1,5 @@
 import Button from 'views/components/Button/Button'
-import React from 'react'
+import React, { FC } from 'react'
 import styles from './LoginForm.module.css'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
@@ -7,8 +7,29 @@ import { authOperations, authSelectors } from 'store/ducks/auth'
 import { connect } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import { AppStateType } from 'store/store'
 
-const initialValue = {
+type FormValuesType = {
+   email: string
+   password: string
+}
+
+type MapStateType = {
+   isAuth: boolean
+}
+
+type MapDispatchType = {
+   login: (email: string, password: string) => void
+}
+
+type OwnPropsType = {
+   headerTitle: string
+   buttonTitle: string
+}
+
+type PropsType = MapStateType & MapDispatchType & OwnPropsType
+
+const initialValue: FormValuesType = {
    email: '',
    password: '',
 }
@@ -21,7 +42,7 @@ const SigninSchema = Yup.object().shape({
       .required('Required'),
 })
 
-const LoginForm = (props) => {
+const LoginForm: FC<PropsType> = (props) => {
    const navigate = useNavigate()
    const location = useLocation()
    const fromPage = location.state?.from?.pathname || '/'
@@ -32,7 +53,7 @@ const LoginForm = (props) => {
       }
    })
 
-   const onFormSubmit = async (values, { setSubmitting }) => {
+   const onFormSubmit = async (values: FormValuesType, { setSubmitting }) => {
       try {
          await props.login(values.email, values.password)
          setSubmitting(false)
@@ -95,10 +116,10 @@ const LoginForm = (props) => {
    )
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppStateType): MapStateType => ({
    isAuth: authSelectors.getIsAuth(state),
 })
-const mapDispatchToProps = {
+const mapDispatchToProps: MapDispatchType = {
    login: authOperations.getLogin,
 }
 

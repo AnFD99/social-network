@@ -1,5 +1,12 @@
+import { UserType } from 'models'
+
 /* eslint-disable import/no-anonymous-default-export */
-const updateObjectInArray = (items, itemId, objPropName, newObjProp) => {
+const updateObjectInArray = (
+   items: UserType[],
+   itemId: number | string,
+   objPropName: string | number,
+   newObjProp: { followed: boolean },
+) => {
    return items.map((u) => {
       if (u[objPropName] === itemId) {
          return { ...u, ...newObjProp }
@@ -8,7 +15,7 @@ const updateObjectInArray = (items, itemId, objPropName, newObjProp) => {
    })
 }
 
-const convertToBase64 = (file) => {
+const convertToBase64 = (file: Blob) => {
    return new Promise((resolve, reject) => {
       const fileReader = new FileReader()
       fileReader.readAsDataURL(file)
@@ -22,6 +29,4 @@ const convertToBase64 = (file) => {
 }
 
 export default { updateObjectInArray, convertToBase64 }
-
-
 
