@@ -3,7 +3,7 @@ import { instanceAPI } from './api'
 
 const profileAPI = {
    async getProfile(id: string | number) {
-      const response = await instanceAPI.get<UserType>(`profile/${id}`)
+      const response = await instanceAPI.get<any>(`profile/${id}`)
       return response
    },
    async updateStatus(id: string | number, status: string) {

@@ -16,10 +16,10 @@ const profileReducer = createSlice({
          state.email = action.payload
       },
       setProfileCover: (state, action: PayloadAction<string>) => {
-         state.photos.cover = action.payload
+         state.photos.coverImage = action.payload
       },
       setProfileAvatar: (state, action: PayloadAction<string>) => {
-         state.photos.avatar = action.payload
+         state.photos.avatarImage = action.payload
       },
       setProfileLocation: (state, action: PayloadAction<LocationType>) => {
          state.location = action.payload

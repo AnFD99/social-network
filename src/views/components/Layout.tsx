@@ -1,8 +1,8 @@
 import React from 'react'
 import '../../App.css'
 import { Outlet } from 'react-router-dom'
-import Header from './Header/Header.jsx'
-import Nav from './Nav/Nav.jsx'
+import Header from './Header/Header'
+import Nav from './Nav/Nav'
 
 const Layout = () => {
    return (

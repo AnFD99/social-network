@@ -1,7 +1,7 @@
 import React, { FC, Suspense } from 'react'
 import './App.css'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import Layout from './views/components/Layout.jsx'
+import Layout from './views/components/Layout'
 import RequireAuth from 'views/hoc/RequireAuth'
 import { connect } from 'react-redux'
 import Preloader from 'views/components/Preloader/Preloader'

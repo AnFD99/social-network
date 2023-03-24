@@ -10,10 +10,10 @@ export const getProfileEmail = (state: AppStateType) => {
    return state.profile.email
 }
 export const getProfileCover = (state: AppStateType) => {
-   return state.profile.photos.cover
+   return state.profile.photos.coverImage
 }
 export const getProfileAvatar = (state: AppStateType) => {
-   return state.profile.photos.avatar
+   return state.profile.photos.avatarImage
 }
 export const getProfileStatus = (state: AppStateType) => {
    return state.profile.status
@@ -21,6 +21,7 @@ export const getProfileStatus = (state: AppStateType) => {
 export const getProfileLocation = (state: AppStateType) => {
    return state.profile.location
 }
+
 
 
 

@@ -30,3 +30,4 @@ const convertToBase64 = (file: Blob) => {
 
 export default { updateObjectInArray, convertToBase64 }
 
+

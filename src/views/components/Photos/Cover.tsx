@@ -9,7 +9,7 @@ type PropsType = {
    authId: number | string
    userId: number | string
    isLoading: boolean
-   savePhoto: (id: number | string, photo: string) => void
+   savePhoto: (id: number | string, photo: any) => void
 }
 
 const Cover: FC<PropsType> = (props) => {
@@ -29,7 +29,7 @@ const Cover: FC<PropsType> = (props) => {
          const base64 = await helpers.convertToBase64(photo)
          setIsLoading(true)
          try {
-            await props.savePhoto(props.authId, base64)
+            props.savePhoto(props.authId, base64)
          } catch (error) {
             console.log(error)
          } finally {
@@ -72,10 +72,4 @@ const Cover: FC<PropsType> = (props) => {
 }
 
 export default Cover
-
-
-
-
-
-
 

@@ -35,7 +35,7 @@ const initialState = {
       id: null as number | null,
       name: null as string | null,
       email: null as string | null,
-      photos: { cover: null as string | null, avatar: null as string | null },
+      photos: { coverImage: '' as string, avatarImage: '' as string },
       status: null as string | null,
       location: null as LocationType | null,
    },

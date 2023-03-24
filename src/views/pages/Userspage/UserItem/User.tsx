@@ -17,19 +17,15 @@ const User: FC<PropsType> = (props) => {
          <div className={styles.user__left}>
             <NavLink to={`/profile/${props.user._id}`}>
                <div className={styles.avatar}>
-                  {!props.user.photos.avatar ? (
+                  {/* {props.user.photos.avatarImage === '' ? ( */}
+                  <img src={avatar} className={styles.noneImg} alt='avatar' />
+                  {/* ) : (
                      <img
-                        src={avatar}
-                        className={styles.noneImg}
-                        alt='avatar'
-                     />
-                  ) : (
-                     <img
-                        src={props.user.photos.avatar}
-                        className={styles.img}
-                        alt='avatar'
-                     />
-                  )}
+                      src={props.user.photos.avatarImage}
+                         className={styles.img}
+                         alt='avatar'
+                      />
+                   )} */}
                </div>
             </NavLink>
             {/* <div className={styles.btn}>
@@ -79,8 +75,4 @@ const User: FC<PropsType> = (props) => {
 }
 
 export { User }
-
-
-
-
 
