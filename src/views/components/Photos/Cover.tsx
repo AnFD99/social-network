@@ -9,7 +9,7 @@ type PropsType = {
    authId: number | string
    userId: number | string
    isLoading: boolean
-   savePhoto: (id: number | string, photo: any) => void
+   savePhoto: (id: number | string, photo: string) => void
 }
 
 const Cover: FC<PropsType> = (props) => {
@@ -24,9 +24,9 @@ const Cover: FC<PropsType> = (props) => {
    }, [props.cover])
 
    const onMainPhotoSelected = async (e: ChangeEvent<HTMLInputElement>) => {
-      if (e.target.files.length) {
+      if (e.target.files?.length) {
          const photo = e.target.files[0]
-         const base64 = await helpers.convertToBase64(photo)
+         const base64: string = await helpers.convertToBase64(photo)
          setIsLoading(true)
          try {
             props.savePhoto(props.authId, base64)

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { FC, useEffect } from 'react'
 import styles from './Profilepage.module.css'
 import Preloader from 'views/components/Preloader/Preloader'
@@ -13,7 +14,7 @@ import { loadingSelectors } from 'store/ducks/loading'
 import { AppStateType } from 'store/store'
 
 type MapStateType = {
-   authId: number | string
+   authId: string
    isLoading: boolean
    isAuth: boolean
    cover: string
@@ -23,22 +24,22 @@ type MapStateType = {
 }
 
 type MapDispatchType = {
-   savePhoto: (id: number | string, photo: string) => void
-   getProfile: (id: number | string) => void
-   updateStatus: (id: number, status: string) => void
+   savePhoto: (id: string, photo: string) => void
+   getProfile: (id: string) => void
+   updateStatus: (id: string, status: string) => void
 }
 
 type PropsType = MapStateType & MapDispatchType
 
 const Profilepage: FC<PropsType> = (props) => {
-   let { id } = useParams() as any
+   let { id } = useParams<string>()
 
    useEffect(() => {
       refreshProfile(id)
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+
    }, [id])
 
-   const refreshProfile = (id: string | number) => {
+   const refreshProfile = (id: string) => {
       if (!id) {
          id = props.authId
          if (!id) {

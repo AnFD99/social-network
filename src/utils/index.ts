@@ -1,2 +1,2 @@
-export { default as helpers } from './helpers/object-helpers'
+export * as helpers from './helpers/object-helpers'
 

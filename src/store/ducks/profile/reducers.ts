@@ -6,7 +6,7 @@ const profileReducer = createSlice({
    name: 'profile',
    initialState: initialState.profile,
    reducers: {
-      setProfileId: (state, action: PayloadAction<number>) => {
+      setProfileId: (state, action: PayloadAction<string>) => {
          state.id = action.payload
       },
       setProfileName: (state, action: PayloadAction<string>) => {

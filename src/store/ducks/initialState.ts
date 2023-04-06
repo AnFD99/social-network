@@ -32,7 +32,7 @@ const initialState = {
       { id: 2, post: 'Hi! My first comment' },
    ] as PostType[],
    profile: {
-      id: null as number | null,
+      id: null as string | null ,
       name: null as string | null,
       email: null as string | null,
       photos: { coverImage: '' as string, avatarImage: '' as string },

@@ -2,11 +2,6 @@
    "name": "react-social-network",
    "version": "0.1.0",
    "private": true,
-   "jest": {
-      "moduleNameMapper": {
-         "axios": "axios/dist/node/axios.cjs"
-      }
-   },
    "dependencies": {
       "@reduxjs/toolkit": "^1.9.2",
       "@testing-library/jest-dom": "^5.16.5",

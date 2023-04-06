@@ -11,7 +11,7 @@ import {
    setProfileLocation,
 } from './reducers'
 
-export const getProfile = (id: number | string): ThunkActionType => {
+export const getProfile = (id: string): ThunkActionType => {
    return async (dispatch) => {
       dispatch(loadingOperations.toggleProfileLoading(true))
       try {
@@ -32,7 +32,7 @@ export const getProfile = (id: number | string): ThunkActionType => {
    }
 }
 
-export const updateStatus = (id: number | string, status: string): ThunkActionType => {
+export const updateStatus = (id: string, status: string): ThunkActionType => {
    return async (dispatch) => {
       let response = await profileAPI.updateStatus(id, status)
 
@@ -40,7 +40,7 @@ export const updateStatus = (id: number | string, status: string): ThunkActionTy
    }
 }
 
-export const getPhoto = (id: number | string, photo: string): ThunkActionType => {
+export const getPhoto = (id: string, photo: string): ThunkActionType => {
    return async (dispatch) => {
       dispatch(loadingOperations.toggleProfileLoading(true))
       try {
@@ -63,26 +63,4 @@ export {
    setProfileAvatar,
    setProfileLocation,
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

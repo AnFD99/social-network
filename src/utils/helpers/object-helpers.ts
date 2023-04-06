@@ -1,7 +1,6 @@
 import { UserType } from 'models'
 
-/* eslint-disable import/no-anonymous-default-export */
-const updateObjectInArray = (
+export const updateObjectInArray = (
    items: UserType[],
    itemId: number | string,
    objPropName: string | number,
@@ -15,7 +14,7 @@ const updateObjectInArray = (
    })
 }
 
-const convertToBase64 = (file: Blob) => {
+export const convertToBase64 = (file: File): Promise<any> => {
    return new Promise((resolve, reject) => {
       const fileReader = new FileReader()
       fileReader.readAsDataURL(file)
@@ -27,7 +26,4 @@ const convertToBase64 = (file: Blob) => {
       }
    })
 }
-
-export default { updateObjectInArray, convertToBase64 }
-
 
